@@ -1,9 +1,10 @@
 import './App.css'
 import { Search } from './components/Search/Search';
+import { AppTitle } from './styles';
 function GifstyApp() {
   return (
     <div>
-      <h2 className="title">Gifsty</h2>
+      <AppTitle>Gifsty</AppTitle>
       <Search/>
     </div>
   );

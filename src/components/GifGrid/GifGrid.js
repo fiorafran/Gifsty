@@ -4,11 +4,13 @@ import { Wrapper, SearchTitle, GifWrapper, ImageTitle, Image } from './styles'
 export const GifGrid = ({category}) => {
     const [images, setImages] = useState([])
     useEffect(() => {
-        getGifs()
-    }, [])
+        getGifs(category)
+    }, [category])
     
-    const getGifs = async() => {
-        const url = 'https://api.giphy.com/v1/gifs/search?api_key=OBRjMT5IxKXzteX4ohkxC1NlH3uI4PdI&q=rick&limit=20&offset=0&rating=g&lang=es';
+    const getGifs = async(category) => {
+        const parseCategory = category.replace(/\s/g, '+');
+        console.log('parse ', parseCategory);
+        const url = `https://api.giphy.com/v1/gifs/search?api_key=OBRjMT5IxKXzteX4ohkxC1NlH3uI4PdI&q=${parseCategory}&limit=15&offset=0&rating=g&lang=es`;
         const res = await fetch(url);
         const { data } = await res.json();
 
@@ -24,15 +26,17 @@ export const GifGrid = ({category}) => {
     };
 
     return (
-        <Wrapper>
+        <>
             <SearchTitle>{category}</SearchTitle>
-            {images.map(img => {
-                return (
-                <GifWrapper key={img.id}>
-                    <ImageTitle>{img.title}</ImageTitle>
-                    <Image src={img.url} alt={img.title}/>
-                </GifWrapper>)
-            })}
-        </Wrapper>
+            <Wrapper>
+                {images.map(({ id, title, url }) => {
+                    return (
+                        <GifWrapper key={id}>
+                            <ImageTitle>{title}</ImageTitle>
+                            <Image src={url} alt={title}/>
+                        </GifWrapper>)
+                })}
+            </Wrapper>
+        </>
     )
 }

@@ -5,13 +5,20 @@ export const Wrapper = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     transition: all .5s ease-in-out;
+    justify-content: center;
+    margin-bottom: 3em;
 `;
 
 export const SearchTitle = styled.h3`
-    text-align: center;
+    text-align: left;
+    padding: 0em 0px 0.7em 1em;
+    border-bottom: 2px solid #e3e3e3;
+    width: 90vw;
+    margin: 20px auto;
 `;
 export const GifWrapper = styled.div`
-    align-content: center;
+    display: flex;
+    flex-direction: column;
     border: 2px solid #d7d7d7;
     border-radius: 10px;
     margin: 10px;

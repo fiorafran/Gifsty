@@ -17,6 +17,9 @@ export const SearchInput = styled.input`
     height: 3vh;
     font-size: 20px;
     outline: none;
+    border: 0;
+    border-bottom: 1px solid #c7c7c7;
+    text-align: center;
 `;
 
 export const Span = styled.span`

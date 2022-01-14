@@ -1,6 +1,5 @@
 export const getGifs = async(category) => {
     const parseCategory = category.replace(/\s/g, '+');
-    console.log('parse ', parseCategory);
     const url = `https://api.giphy.com/v1/gifs/search?api_key=OBRjMT5IxKXzteX4ohkxC1NlH3uI4PdI&q=${parseCategory}&limit=15&offset=0&rating=g&lang=es`;
     const res = await fetch(url);
     const { data } = await res.json();
@@ -12,6 +11,5 @@ export const getGifs = async(category) => {
             url: image.images.downsized_medium.url
         }
     })
-    console.log(gifs)
     return gifs;
 };

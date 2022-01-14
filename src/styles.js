@@ -33,8 +33,16 @@ border-bottom: 2px solid #ccc;
 margin: 0 auto 1em auto;
 `;
 export const GlobalCss = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600&display=swap');
     body {
         background-color: ${({ theme }) => theme.bgColor};
         color: ${({ theme }) => theme.Color};
+        margin: 0;
+        font-family: 'Readex Pro', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 `;

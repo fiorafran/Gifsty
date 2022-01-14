@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getGifs } from '../../hooks/getGifs'
 import { Wrapper, SearchTitle, GifWrapper, ImageTitle, Image } from './styles'
 
-export const GifGrid = ({category}) => {
+export const GifGrid = ({category, theme}) => {
     const [images, setImages] = useState([])
     useEffect(() => {
         getGifs(category).then(setImages)
@@ -14,7 +14,7 @@ export const GifGrid = ({category}) => {
             <Wrapper>
                 {images && images.map(({ id, title, url }) => {
                     return (
-                        <GifWrapper key={id}>
+                        <GifWrapper key={id} theme={theme}>
                             <ImageTitle>{title}</ImageTitle>
                             <Image src={url} alt={title}/>
                         </GifWrapper>)

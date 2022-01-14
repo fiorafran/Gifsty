@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { GifGrid } from '../GifGrid/GifGrid';
 import { Form, InputWrapper, SearchInput, Span } from './styles'
 
-export const Search = () => {
+export const Search = ({ theme }) => {
     const [value, setValue] = useState('');
     const [category, setCategory] = useState('');
 
@@ -13,14 +13,12 @@ export const Search = () => {
     };
 
     return (
-        <div>
             <Form onSubmit={handleSubmit}>
                 <InputWrapper>
-                    <SearchInput type="text" onChange={ handleChange } value={ value } placeholder='Buscar Gif'/>
-                    <Span width={value.length}/>
+                    <SearchInput type="text" onChange={ handleChange } value={ value } placeholder='Buscar Gif' theme={theme}/>
+                    <Span width={value.length} theme={theme} />
                 </InputWrapper>
-                {category && category.map(cat => <GifGrid key={cat} category={cat}/>)}
+                {category && category.map(cat => <GifGrid key={cat} category={cat} theme={theme}/>)}
             </Form>
-        </div>
     )
 }

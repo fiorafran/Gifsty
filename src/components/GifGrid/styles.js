@@ -26,7 +26,7 @@ export const GifWrapper = styled.div`
     transition: all .3s ease-in-out;
 
     &:hover {
-        box-shadow: 8px 8px 1px 0px rgb(0 0 0 / 75%)
+        box-shadow: 8px 8px 1px 0px ${({ theme }) => theme.bgColor === 'black' ? 'rgb(255 255 255)' : 'rgb(0 0 0 / 75%)'}
     }
 `;
 export const ImageTitle = styled.p`
@@ -36,4 +36,7 @@ export const Image = styled.img`
     max-height: 200px;
     min-width: 250px;
     transition: all .5s ease-in-out;
+    @media (max-width: 600px) {
+        max-width: 355px;
+    }
 `;

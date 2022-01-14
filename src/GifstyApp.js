@@ -1,19 +1,23 @@
 import { useState } from 'react';
 import { Search } from './components/Search/Search';
-import { RadioWrapper, MainWrapper, AppTitle, RadioLabel, RadioInput } from './styles';
+import { RadioWrapper, MainWrapper, AppTitle, RadioLabel, RadioInput, GlobalCss } from './styles';
 
 const GifstyApp = () => {
 
-  const [bgColor, setBgColor] = useState('');
+  const [bgColor, setBgColor] = useState('white');
   const handlebgColor = ev => setBgColor(ev.target.value);
-  console.log(bgColor)
+
   const theme = {
     bgColor: bgColor,
     Color: bgColor === 'white' ? 'black': 'white',
+    inputBg: bgColor,
+    inputColor: bgColor !== 'white' ? 'white' : 'black',
+    spanColor: bgColor === '#7900FF' ? 'white' : '#7900FF'
   }
 
   return (
     <MainWrapper theme={theme}>
+      <GlobalCss theme={theme} />
       <RadioWrapper>
         <RadioLabel onClick={handlebgColor}>
           White
@@ -29,7 +33,7 @@ const GifstyApp = () => {
         </RadioLabel>
       </RadioWrapper>
       <AppTitle>Gifsty</AppTitle>
-      <Search/>
+      <Search theme={theme} />
     </MainWrapper>
   );
 }

@@ -18,7 +18,7 @@ export const Search = ({ theme }) => {
                     <SearchInput type="text" onChange={ handleChange } value={ value } placeholder='Buscar Gif' theme={theme}/>
                     <Span width={value.length} theme={theme} />
                 </InputWrapper>
-                {category && category.map(cat => <GifGrid key={cat} category={cat} theme={theme}/>)}
+                {category && category.map((cat, idx) => <GifGrid key={idx} category={cat} theme={theme}/>)}
             </Form>
     )
 }
